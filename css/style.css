@@ -25,3 +25,13 @@ p{
 p.hide{
     display: none;
 }
+
+.hide.green{
+    display: block;
+    color: green;
+}
+
+.hide.red{
+    display: block;
+    color: red;
+}

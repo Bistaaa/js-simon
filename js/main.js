@@ -21,10 +21,24 @@ setTimeout (function () {
     for (let i = 0; i < 5; i++) {
         let newGuess = parseInt(prompt("Inserisci numeri singolarmente"));
         guessNumbers.push(newGuess);
-        
     }    
     console.log(guessNumbers);
+
+    // Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
+     for (let i = 0; i < 5; i++) {
+        if (randomNumberArray[i]===guessNumbers[i]) {
+            paragraphs.forEach(function(paragraphHide) {
+                paragraphHide.classList.add("green");
+            });
+        } else {
+            paragraphs.forEach(function(paragraphHide) {
+                paragraphHide.classList.add("red");
+            });
+        }
+        
+     }
 }, 3*1000)
+
 
 
 
@@ -41,7 +55,3 @@ function numberAppend (number) {
 
 
 
-
-// Dopo 30 secondi i numeri scompaiono e l’utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt().
-
-// Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
