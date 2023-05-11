@@ -6,9 +6,25 @@ while (randomNumberArray.length < 5) {
     let newRandomNumber = Math.floor(Math.random() * 99) + 1;
     if (!randomNumberArray.includes(newRandomNumber)) {
         randomNumberArray.push(newRandomNumber);
+        numberAppend(newRandomNumber);
     };
-    numberAppend();
+    
 }
+
+// Dopo 30 secondi i numeri scompaiono e l’utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt().
+setTimeout (function () {
+    const paragraphs = container.querySelectorAll("p");
+    paragraphs.forEach(function(paragraphHide) {
+        paragraphHide.classList.add("hide");
+    });
+    let guessNumbers = []
+    for (let i = 0; i < 5; i++) {
+        let newGuess = parseInt(prompt("Inserisci numeri singolarmente"));
+        guessNumbers.push(newGuess);
+        
+    }    
+    console.log(guessNumbers);
+}, 3*1000)
 
 
 
@@ -16,25 +32,15 @@ while (randomNumberArray.length < 5) {
 
 //FUNZIONI
 
-function numberAppend() {
+function numberAppend (number) {
     const newP = document.createElement("p");
     container.append(newP);
-    const currentIndex = randomNumberArray.length - 1;
-    newP.append(randomNumberArray[currentIndex]);
+    newP.append(number);
 }
 
 
 
 
-
-
-
-
-
-
-
-
-// Da lì parte un timer di 30 secondi.
 
 // Dopo 30 secondi i numeri scompaiono e l’utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt().
 
